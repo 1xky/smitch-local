@@ -9,9 +9,9 @@ Smitch Local talks directly to the bulb over your Wi-Fi network. The desktop con
 | Platform | Download | Requirements |
 | --- | --- | --- |
 | Android | [Smitch Local APK](downloads/Smitch-Local-Android.apk) | Android 6.0 or newer |
-| Windows | [Desktop controller ZIP](downloads/Smitch-Local-Desktop.zip) | Python 3.10+ |
-| macOS | [Desktop controller ZIP](downloads/Smitch-Local-Desktop.zip) | Python 3.10+ |
-| Linux | [Desktop controller ZIP](downloads/Smitch-Local-Desktop.zip) | Python 3.10+ |
+| Windows | [Windows ZIP](downloads/Smitch-Local-Windows.zip) | Python 3.10+ |
+| macOS | [macOS ZIP](downloads/Smitch-Local-macOS.zip) | Python 3.10+ |
+| Linux | [Linux ZIP](downloads/Smitch-Local-Linux.zip) | Python 3.10+ |
 
 You can also use the [project website](https://1xky.github.io/smitch-local/) for a simpler download and setup guide.
 
@@ -49,7 +49,7 @@ You can also connect directly to the bulb's `Smitch` hotspot. While connected to
 
 - `desktop/` — dependency-free Python web controller and launchers
 - `android/` — Android app source and tests
-- `downloads/` — ready-to-use APK and desktop ZIP
+- `downloads/` - ready-to-use APK and separate Windows, macOS, and Linux ZIPs
 - `docs/` — GitHub Pages download and setup site
 
 ## Development

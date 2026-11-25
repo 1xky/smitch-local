@@ -31,11 +31,12 @@ jobs:
           mkdir -p _site/downloads
           cp -R docs/. _site/
           cp downloads/Smitch-Local-Android.apk _site/downloads/
-          cp downloads/Smitch-Local-Desktop.zip _site/downloads/
+          cp downloads/Smitch-Local-Windows.zip _site/downloads/
+          cp downloads/Smitch-Local-macOS.zip _site/downloads/
+          cp downloads/Smitch-Local-Linux.zip _site/downloads/
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
-
