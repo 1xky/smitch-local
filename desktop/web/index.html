@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#171814">
+  <title>Smitch Local</title>
+  <link rel="stylesheet" href="/app.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <main>
+    <header class="masthead">
+      <h1>Smitch <span>Local</span></h1>
+      <div class="indicator" id="connection" data-state="idle">Disconnected</div>
+    </header>
+    <div class="dashboard">
+      <section class="panel light" aria-labelledby="heading">
+        <div class="preview" id="preview" aria-hidden="true">
+          <div class="halo"></div>
+          <svg viewBox="0 0 100 132" fill="none">
+            <path class="glass" d="M50 7C27 7 13 25 13 44c0 14 6 24 14 33 4 4 6 9 6 15h34c0-6 2-11 6-15 8-9 14-19 14-33C87 25 73 7 50 7Z" />
+            <path d="M31 37c2-8 8-14 16-16M34 102h32m-30 8h28m-23 8h18m-15 7h12" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="light-body">
+          <h2 id="heading">Your bulb</h2>
+          <p class="description" id="device">Connect a Smitch bulb to use its controls.</p>
+          <fieldset id="controls" disabled>
+            <legend class="sr">Light controls</legend>
+            <div class="control-row">
+              <span>Power</span>
+              <div class="segments" role="group" aria-label="Power">
+                <button id="off" type="button" aria-pressed="false">Off</button>
+                <button id="on" type="button" aria-pressed="false">On</button>
+              </div>
+            </div>
+            <div class="control-row">
+              <label for="brightness">Brightness</label>
+              <output id="brightness-out" for="brightness">—</output>
+              <input id="brightness" type="range" min="5" max="100" value="100">
+            </div>
+            <div class="control-row" id="temperature-row" hidden>
+              <label for="temperature">White temperature</label>
+              <output id="temperature-out" for="temperature">—</output>
+              <input id="temperature" type="range" min="2700" max="6500" step="100" value="4000">
+            </div>
+            <div class="control-row" id="color-row" hidden>
+              <label for="color">Color</label>
+              <input id="color" type="color" value="#f5b95f">
+              <div class="palette" role="group" aria-label="Color presets">
+                <button title="Red" aria-label="Red" data-color="#ff230c" style="--swatch:#ff230c"></button>
+                <button title="Amber" aria-label="Amber" data-color="#ff931a" style="--swatch:#ff931a"></button>
+                <button title="Green" aria-label="Green" data-color="#37e273" style="--swatch:#37e273"></button>
+                <button title="Sky blue" aria-label="Sky blue" data-color="#24b5ff" style="--swatch:#24b5ff"></button>
+                <button title="Blue" aria-label="Blue" data-color="#5260ff" style="--swatch:#5260ff"></button>
+                <button title="Violet" aria-label="Violet" data-color="#be64ff" style="--swatch:#be64ff"></button>
+              </div>
+            </div>
+          </fieldset>
+          <p class="feedback" id="light-status" role="status"></p>
+        </div>
+      </section>
+      <section class="panel network" aria-labelledby="network-heading">
+        <h2 id="network-heading">Connect a bulb</h2>
+        <div class="method">
+          <h3>Home Wi-Fi</h3>
+          <p>Stay on your regular network if your bulb is already on it.</p>
+          <button type="button" class="primary" id="discover">Find bulbs on Wi-Fi</button>
+          <div id="results"></div>
+          <details>
+            <summary>Enter an IP address</summary>
+            <form id="manual" autocomplete="off">
+              <div class="address">
+                <label>Bulb IPv4 address <input id="ip" required placeholder="192.168.1.42" spellcheck="false"></label>
+                <label>Port <input id="port" type="number" min="1" max="65535" value="80" required></label>
+              </div>
+              <button type="submit">Connect by IP</button>
+            </form>
+          </details>
+        </div>
+        <div class="method">
+          <h3>Bulb hotspot</h3>
+          <p>Join the bulb’s <strong>Smitch</strong> Wi-Fi in your laptop’s network settings, then connect here.</p>
+          <button type="button" id="hotspot">Connect to hotspot</button>
+          <details>
+            <summary>Set up home Wi-Fi once</summary>
+            <p>While connected to the bulb’s hotspot, enter your home network. After sending, switch your laptop back to that network and find the bulb above.</p>
+            <form id="setup" autocomplete="off">
+              <label>2.4 GHz Wi-Fi name <input id="ssid" required maxlength="32" spellcheck="false"></label>
+              <label>Wi-Fi password <input id="password" type="password" required minlength="8" maxlength="63" autocomplete="new-password"></label>
+              <button type="submit">Send Wi-Fi settings</button>
+            </form>
+          </details>
+        </div>
+        <p class="feedback" id="network-status" role="status"></p>
+      </section>
+    </div>
+  </main>
+</body>
+</html>

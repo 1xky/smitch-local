@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="color-scheme" content="dark">
+<title>Smitch Local</title>
+<style>/*STYLE*/</style>
+</head>
+<body>
+<main>
+  <header><div class="mark" aria-hidden="true">✦</div><div><span class="eyebrow">YOUR LIGHT, LOCALLY</span><h1>Smitch Local</h1></div><button id="wifi" class="icon-button" aria-label="Open Android Wi-Fi settings">Wi-Fi ↗</button></header>
+  <div class="privacy"><span class="dot"></span>No login <span>·</span> No cloud <span>·</span> No subscription</div>
+  <div id="notice" role="status" aria-live="polite">Connect to your bulb to get started.</div>
+  <section id="controller" class="card" hidden>
+    <div class="card-top"><span class="eyebrow accent">CONNECTED ON WI-FI</span><button id="refresh" class="text-button">Refresh status ↻</button></div>
+    <h2 id="model">Your bulb</h2><p id="endpoint" class="muted mono"></p>
+    <div class="power-row"><span id="power-report" class="muted">Power status unavailable</span><div class="segmented"><button id="on">On</button><button id="off">Off</button></div></div>
+    <div class="control"><label for="brightness">Brightness <output id="brightness-value">100%</output></label><input id="brightness" type="range" min="5" max="100" value="100"><div class="range-labels"><span>Dim</span><span>Bright</span></div></div>
+    <div id="color-controls" hidden>
+      <div class="divider"></div><div class="color-title"><h3>Color</h3><div id="preview" aria-label="Selected color"></div></div>
+      <div class="swatches" id="swatches" aria-label="Color presets"></div>
+      <div class="control"><label for="hue">Hue <output id="hue-value">0°</output></label><input id="hue" class="hue" type="range" min="0" max="360" value="0"></div>
+      <div class="control"><label for="saturation">Saturation <output id="saturation-value">100%</output></label><input id="saturation" type="range" min="0" max="100" value="100"><div class="range-labels"><span>Soft</span><span>Vivid</span></div></div>
+    </div>
+    <div id="white-controls" hidden><div class="divider"></div><div class="control"><label for="temperature">White temperature <output id="temperature-value">4000 K</output></label><input id="temperature" class="temperature" type="range" min="2700" max="6500" step="100" value="4000"><div class="range-labels"><span>Warm · 2700 K</span><span>Cool · 6500 K</span></div></div></div>
+    <p class="fine">Controls send when you release a slider. Refresh reads what the bulb reports.</p>
+  </section>
+  <section class="card home">
+    <div class="card-top"><span class="eyebrow">EVERYDAY CONNECTION</span><span class="recommended">RECOMMENDED</span></div>
+    <h2>Stay on home Wi-Fi</h2><p>Your phone and bulb can share your router. No need to switch to the bulb's Wi-Fi each time.</p>
+    <button id="discover" class="primary wide">Find bulbs on this Wi-Fi <span>→</span></button>
+    <div id="results" aria-live="polite"></div>
+    <details id="manual"><summary>Enter the bulb's IP address</summary><form id="connect-form"><div class="fields"><label>Local IP address<input id="ip" inputmode="decimal" placeholder="192.168.1.25" maxlength="15" required autocomplete="off"></label><label class="port">Port<input id="port" type="number" min="1" max="65535" value="80" required></label></div><button class="secondary wide" type="submit">Connect to this address</button></form><p class="fine">Find the bulb's IP in your router's device list. Discovery checks port 80 on your current /24 subnet; manual entry also supports other local subnets and ports.</p></details>
+  </section>
+  <section class="card">
+    <span class="eyebrow">DIRECT CONNECTION</span><h2>Use the bulb's hotspot</h2><p>Join the bulb's <strong>Smitch</strong> Wi-Fi in Android settings. If Android says “No internet,” choose to stay connected.</p>
+    <button id="hotspot" class="secondary wide">Connect to bulb hotspot <span>→</span></button><p class="fine mono">192.168.4.1 · port 80</p>
+  </section>
+  <section class="card setup">
+    <details id="setup"><summary><span>Set up home Wi-Fi once<small>Move the bulb onto your router</small></span></summary>
+      <p>First join the bulb's hotspot. Then send your <strong>2.4 GHz</strong> home Wi-Fi details below.</p>
+      <form id="setup-form"><label>Wi-Fi name (SSID)<input id="ssid" required maxlength="32" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="Your home Wi-Fi"></label><label>Wi-Fi password<input id="password" type="password" required minlength="8" maxlength="63" autocomplete="off" placeholder="8–63 bytes"></label><p class="fine">Sent directly to the bulb over its local connection. The password is cleared after sending and is never saved by this app.</p><button type="submit" class="secondary wide">Send Wi-Fi settings</button></form>
+      <p id="setup-help" class="fine">After sending, wait about 30 seconds, reconnect your phone to home Wi-Fi, then tap “Find bulbs.” Firmware support varies; direct hotspot control remains available.</p>
+    </details>
+  </section>
+  <footer>Built for stock Smitch bulbs · v1.0.0<p>Local access only. Your phone must be on the bulb's hotspot or a Wi-Fi network that can reach the bulb.</p></footer>
+</main>
+<script>/*SCRIPT*/</script>
+</body>
+</html>
