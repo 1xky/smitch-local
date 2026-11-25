@@ -1,0 +1,8 @@
+* { box-sizing: border-box; }
+:root {
+  color-scheme: dark;
+  color: #f7f5ed;
+  background: #171814;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  --muted: #c0bfb3;
+  --border: #414238;

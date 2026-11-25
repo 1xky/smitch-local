@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# Android/Gradle output and private signing material
+android/.build/
+android/.gradle/
+android/build/
+android/dist/
+android/signing/
+android/local.properties
+*.jks
+*.keystore
+
+# Editors and operating systems
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

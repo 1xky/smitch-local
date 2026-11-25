@@ -1,0 +1,55 @@
+plugins { id 'com.android.application' version '8.7.3' }
+
+android {
+    namespace 'local.smitch.controller'
+    compileSdk 35
+    defaultConfig {
+        applicationId 'local.smitch.controller'
+        minSdk 23
+        targetSdk 35
+        versionCode 1
+        versionName '1.0.0'
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs = ['src']
+            res.srcDirs = ['res']
+            assets.srcDirs = [layout.buildDirectory.dir('generated/assets')]
+        }
+    }
+    def releaseKeystore = System.getenv('SMITCH_KEYSTORE')
+    if (releaseKeystore) {
+        signingConfigs {
+            releaseKey {
+                storeFile file(releaseKeystore)
+                storePassword System.getenv('SMITCH_STORE_PASSWORD')
+                keyAlias System.getenv('SMITCH_KEY_ALIAS')
+                keyPassword System.getenv('SMITCH_KEY_PASSWORD')
+            }
+        }
+    }
+    buildTypes {
+        release {
+            if (releaseKeystore) signingConfig signingConfigs.releaseKey
+            minifyEnabled false
+        }
+    }
+}
+
+tasks.register('bundleController') {
+    inputs.files('web/index.html', 'web/app.css', 'web/app.js')
+    outputs.dir(layout.buildDirectory.dir('generated/assets'))
+    doLast {
+        def output = layout.buildDirectory.file('generated/assets/index.html').get().asFile
+        output.parentFile.mkdirs()
+        output.setText(file('web/index.html').getText('UTF-8')
+            .replace('/*STYLE*/', file('web/app.css').getText('UTF-8'))
+            .replace('/*SCRIPT*/', file('web/app.js').getText('UTF-8')), 'UTF-8')
+    }
+}
+tasks.named('preBuild').configure { dependsOn 'bundleController' }

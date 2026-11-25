@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111722">
+  <meta name="description" content="Download Smitch Local, an account-free local controller for compatible Smitch Wi-Fi bulbs.">
+  <title>Smitch Local — local bulb control</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="nav wrap">
+    <a class="brand" href="#top" aria-label="Smitch Local home"><span>✦</span> Smitch Local</a>
+    <a class="github" href="https://github.com/1xky/smitch-local">View source ↗</a>
+  </header>
+
+  <main id="top">
+    <section class="hero wrap">
+      <div class="copy">
+        <p class="eyebrow">YOUR LIGHT, YOUR NETWORK</p>
+        <h1>Bring your Smitch bulb back online.</h1>
+        <p class="intro">Control compatible stock Smitch Wi-Fi bulbs directly from Android, Windows, macOS, or Linux. No account, cloud server, subscription, or modified bulb firmware.</p>
+        <div class="actions">
+          <a class="button primary" href="downloads/Smitch-Local-Android.apk" download>Download Android APK</a>
+          <a class="button secondary" href="downloads/Smitch-Local-Desktop.zip" download>Download for desktop</a>
+        </div>
+        <p class="small">Desktop requires Python 3.10+. Android requires Android 6.0+.</p>
+      </div>
+      <div class="bulb" aria-hidden="true">
+        <div class="glow"></div>
+        <svg viewBox="0 0 180 240" fill="none">
+          <path class="glass" d="M90 15c-42 0-72 31-72 70 0 30 15 49 33 68 8 8 11 19 11 31h56c0-12 3-23 11-31 18-19 33-38 33-68 0-39-30-70-72-70Z"/>
+          <path d="M62 203h56M68 218h44M79 232h22" stroke="currentColor" stroke-width="9" stroke-linecap="round"/>
+          <path d="M61 78c5-20 19-32 37-35" stroke="white" stroke-opacity=".6" stroke-width="7" stroke-linecap="round"/>
+        </svg>
+      </div>
+    </section>
+
+    <section class="features wrap" aria-label="Features">
+      <article><span>01</span><h2>Fully local</h2><p>Commands travel over your Wi-Fi directly to the bulb. The controllers do not need a Smitch login.</p></article>
+      <article><span>02</span><h2>Keep stock firmware</h2><p>No soldering or firmware flashing. Use the local protocol already built into compatible bulbs.</p></article>
+      <article><span>03</span><h2>Cross-platform</h2><p>A standalone Android app plus one lightweight browser controller for Windows, macOS, and Linux.</p></article>
+    </section>
+
+    <section class="setup wrap">
+      <div><p class="eyebrow">RECOMMENDED SETUP</p><h2>Use your home Wi-Fi</h2><p>Connect the bulb once to your 2.4 GHz router. After that, keep your phone or computer on its normal Wi-Fi and find the bulb locally.</p></div>
+      <ol>
+        <li><strong>Join the bulb hotspot.</strong><span>Connect to the Wi-Fi network named Smitch.</span></li>
+        <li><strong>Send home Wi-Fi details.</strong><span>Use “Set up home Wi-Fi once” in either controller.</span></li>
+        <li><strong>Reconnect and discover.</strong><span>Return to home Wi-Fi, then find the bulb or enter its router IP.</span></li>
+      </ol>
+    </section>
+
+    <section class="platforms wrap">
+      <p class="eyebrow">CHOOSE YOUR PLATFORM</p><h2>Ready to run</h2>
+      <div class="cards">
+        <article><div class="icon">A</div><h3>Android</h3><p>Standalone APK with bulb discovery, direct hotspot control, and home Wi-Fi setup.</p><a href="downloads/Smitch-Local-Android.apk" download>Download APK →</a></article>
+        <article><div class="icon">W</div><h3>Windows</h3><p>Extract the ZIP and double-click <code>Start-Smitch.cmd</code>.</p><a href="downloads/Smitch-Local-Desktop.zip" download>Download ZIP →</a></article>
+        <article><div class="icon">M</div><h3>macOS</h3><p>Extract the ZIP and open <code>Start-Smitch.command</code>.</p><a href="downloads/Smitch-Local-Desktop.zip" download>Download ZIP →</a></article>
+        <article><div class="icon">L</div><h3>Linux</h3><p>Extract the ZIP and run <code>sh Start-Smitch.sh</code>.</p><a href="downloads/Smitch-Local-Desktop.zip" download>Download ZIP →</a></article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap"><p>Independent community project. Not affiliated with or endorsed by Smitch.</p><p>Compatibility depends on bulb model and firmware.</p></footer>
+</body>
+</html>
